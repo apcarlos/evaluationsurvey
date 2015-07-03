@@ -28,16 +28,17 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Ideas', ideas_path %></li>
+        <li><%= link_to 'Start Evaluation', 'rapidfire' %></li>
+        <li><%= link_to 'Users', main_app.users_path %></li>
       </ul>
       <p class="navbar-text pull-right">
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <%= link_to 'Edit profile', main_app.edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", main_app.destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <%= link_to "Sign up", main_app. new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", main_app.new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 
     </div>

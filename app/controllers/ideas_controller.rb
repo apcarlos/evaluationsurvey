@@ -5,6 +5,7 @@ class IdeasController < ApplicationController
   # GET /ideas.json
   def index
     @ideas = Idea.all
+    @idea = Idea.new
   end
 
   # GET /ideas/1
