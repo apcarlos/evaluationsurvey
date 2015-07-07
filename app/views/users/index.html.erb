@@ -6,5 +6,6 @@
 <%= user.last_name %>
 <%= user.school_name %>
 <%= user.internship_year %>
+<%= link_to "create feedback", new_user_feedback_path(user_id: user.id) %>
 </p>
 <% end %>

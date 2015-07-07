@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623081346) do
+ActiveRecord::Schema.define(version: 20150703064539) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "user_name"
@@ -69,6 +69,13 @@ ActiveRecord::Schema.define(version: 20150623081346) do
   end
 
   add_index "rapidfire_questions", ["question_group_id"], name: "index_rapidfire_questions_on_question_group_id"
+
+  create_table "user_feedbacks", force: :cascade do |t|
+    t.text     "feedback"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
