@@ -17,10 +17,17 @@ p    {color:black}
 
 
 
-<H1> Feeback </H1>
-<% current_user.user_feedbacks.each do |feedback| %>
-  <p><%= feedback.feedback %></p>
+<H1> Feedback </H1>
+<% @feedbacks.each do |feedback| %>
+	
+  <% u = feedback.user %>
+  <p>
+  	<%= feedback.feedback %> | 
+  	<%= "#{u.first_name} #{u.last_name}" %> |
+  	<%= u.created_at%>
+  </p>
 
+  
 
 <% end %>	
 </body>

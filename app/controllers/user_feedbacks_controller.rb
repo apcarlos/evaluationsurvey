@@ -10,7 +10,8 @@ class UserFeedbacksController < ApplicationController
   end
 
   def create
-  		@user_feedback=UserFeedback.create(user_feedback_params)
+  		@user = User.find(params[:user_feedback][:user_id])
+  		@user_feedback=@user.user_feedbacks.create(user_feedback_params)
   		redirect_to @user_feedback
   end
 
