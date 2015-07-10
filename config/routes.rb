@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user_feedbacks/index'
+
   get 'user_feedbacks/new'
 
   get 'user_feedbacks/show'

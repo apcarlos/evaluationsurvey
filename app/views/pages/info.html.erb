@@ -15,9 +15,13 @@ p    {color:black}
 <p>Thanks!</p>
 
 
+
+
 <H1> Feeback </H1>
 <% current_user.user_feedbacks.each do |feedback| %>
   <p><%= feedback.feedback %></p>
-<% end %>
+
+
+<% end %>	
 </body>
 </html>

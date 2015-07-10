@@ -1,6 +1,9 @@
 <%= form_for @user_feedback do |f| %>
 <%= f.label :feedback %>
-<%= f.text_area :feedback %>
+<p><%= f.label :what_did_the_intern_do_exceedingly_well_? %>
+<%= f.text_area :feedback%></p>
+<%= f.label :what_could_the_intern_have_done_better_? %>
+<%= f.text_area :feedback%>
 <%= f.hidden_field :user_id %>
 <%= f.submit %>
 <% end %>
