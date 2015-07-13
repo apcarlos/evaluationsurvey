@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'pages#home'
+
   get 'user_feedbacks/index'
 
   get 'user_feedbacks/new'
@@ -9,11 +12,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: "registrations"} 
   get 'pages/info'
 
-  resources :pages 
   resources :users
   resources :ideas
   resources :user_feedbacks
-  root :to => 'pages#info'
 
   mount Rapidfire::Engine => "/rapidfire"
   
