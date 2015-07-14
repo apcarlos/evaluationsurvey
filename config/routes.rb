@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'user_feedbacks/show'
 
   resources :comments
-  devise_for :users, controllers: {registrations: "registrations"} 
+  devise_for :users, controllers: {registrations: "registrations"}
   get 'pages/info'
 
   resources :users
@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :user_feedbacks
 
   mount Rapidfire::Engine => "/rapidfire"
-  
+
 end

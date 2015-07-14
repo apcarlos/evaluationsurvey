@@ -1,10 +1,11 @@
 class UserFeedbacksController < ApplicationController
-  
-  def new 
+  before_action :authenticate_user!
+
+  def new
   		@user_feedback =User.find(params[:user_id]).user_feedbacks.new
   end
 
-  def show 
+  def show
   		@user_feedback =UserFeedback.find(params[:id])
 
   end

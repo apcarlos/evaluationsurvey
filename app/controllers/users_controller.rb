@@ -1,4 +1,5 @@
-class UsersController < ApplicationController 
+class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
   	@users = User.all
@@ -8,10 +9,10 @@ class UsersController < ApplicationController
   	@users = User.new
   end
 
-  def edit 
+  def edit
   	@user = User.find(params[:id])
   end
-  
+
   def update
   	@user = User.find(params[:id])
   	if @user.update!(user_params)
@@ -19,11 +20,11 @@ class UsersController < ApplicationController
   	else
   		render 'edit'
   	end
-  end	
+  end
 
-  private 
+  private
   	def user_params
   		params.require(:user).permit(:email, :first_name, :last_name, :school_name, :internship_year)
-  	end	
+  	end
 
 end
