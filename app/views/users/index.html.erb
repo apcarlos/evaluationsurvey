@@ -1,14 +1,16 @@
 <% @users.each do |user| %>
 <p>
-<%= user.email %>
-<%= user.last_name %>
 <%= user.first_name %>
 <%= user.last_name %>
+<br>
+<%= user.email %>
 <%= user.school_name %>
 <%= user.internship_year %>
 </p>
-<%= link_to "create feedback", new_user_feedback_path(user_id: user.id) %>
 
-<%= link_to "show feedback", user_feedbacks_path(user_id: user.admin) %>
+  <%= if current_user.admin? %>
+    <%= link_to "Create feedback", new_user_feedback_path(user_id: user.id) %>
 
+    <%= link_to "Show feedback", user_feedbacks_path(user_id: user.admin) %>
+  <% end %>
 <% end %>
