@@ -1,34 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {background-color:gainsboro}
-h1   {color:cornflowerblue}
-p    {color:black}
-</style>
-</head>
-<body>
-<h1>Intern Evaluation Survey</h1>
-<h2>Instructions</h2>
-<p>Please fill out this survey to evaluate your internship experience at AELOGICA. We would like you to be as honest as possible because your constructive feedback will  be used to make this program better.</p>
-<p>Click at the tab called <strong>Start Evaluation</strong> to start filling out the questionnaire.</p>
-<p>Thanks!</p>
-
-
-
-
-<H1> Feedback </H1>
-<% @feedbacks.each do |feedback| %>
-	
-  <% u = feedback.user %>
-  <p>
-  	<%= feedback.feedback %> | 
-  	<%= "#{u.first_name} #{u.last_name}" %> |
-  	<%= u.created_at%>
-  </p>
-
-  
-
-<% end %>	
-</body>
-</html>
+<% if current_user && !current_user.admin %>
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<style>
+	body {background-color:gainsboro}
+	h1   {color:cornflowerblue}
+	p    {color:black}
+	</style>
+	</head>
+	<body>
+	<h1>Intern Evaluation Survey</h1>
+	<h2>Instructions</h2>
+	<p>Please fill out this survey to evaluate your internship experience at AELOGICA. We would like you to be as honest as possible because your constructive feedback will  be used to make this program better.</p>
+	<p>Click at the tab called <strong>Start Evaluation</strong> to start filling out the questionnaire.</p>
+	<p>Thanks!</p>
+<% elsif current_user && current_user.admin %>
+	<h1> Feedback </h1>
+	<% @feedbacks.each do |feedback| %>
+	  <% u = feedback.user %>
+	  <p>
+	  	<%= feedback.feedback %> | 
+	  	<%= "#{u.first_name} #{u.last_name}" %> |
+	  	<%= u.created_at%>
+	  </p>
+	<% end %>	
+<% end %>
