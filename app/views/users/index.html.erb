@@ -8,7 +8,7 @@
 <%= user.internship_year %>
 </p>
 
-  <%= if current_user.admin? %>
+  <% if current_user.admin %>
     <%= link_to "Create feedback", new_user_feedback_path(user_id: user.id) %>
 
     <%= link_to "Show feedback", user_feedbacks_path(user_id: user.admin) %>
