@@ -25,7 +25,7 @@ class RegistrationsController < Devise::RegistrationsController
 			:last_name,
 			:school_name,
 			:internship_year,
-			:current_password
+			:current_password,
 			:password,
 			:password_confirmation,
 			)
