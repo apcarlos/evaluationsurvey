@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 			else
 				@feedbacks=current_user.user_feedbacks
 			end
-		end
+		end				
 	end
 
 end

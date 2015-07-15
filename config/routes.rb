@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
+  root 'pages#info'
 
   get 'user_feedbacks/index'
 
