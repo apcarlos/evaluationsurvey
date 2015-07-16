@@ -1,8 +1,30 @@
+<h3> New Feedback: </h3>
+<hr>
 <%= form_for @user_feedback do |f| %>
-<%= f.label :what_did_the_intern_do_exceedingly_well_? %> <br>
-<%= f.text_area :feedback, :size => "100x10" %></p>
-<%= f.label :what_could_the_intern_have_done_better_? %><br>
-<%= f.text_area :feedback, :size => "100x10" %>
-<%= f.hidden_field :user_id %> <br> <br>
-<%= f.submit 'Submit Feedback' %>
+	<div class="row">
+		<div class="form-group">
+		    <%= f.label :what_did_the_intern_do_exceedingly_well_?, :class => 'control-label col-md-4' %>
+		    <div class="col-md-8">
+		      <%= f.text_area :feedback, :size => "100x10", :class => 'form-control' %>
+		    </div>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 50px">
+		<div class="form-group">
+		    <%= f.label :what_could_the_intern_have_done_better_?, :class => 'control-label col-md-4' %>
+		    <div class="col-md-8">
+		      <%= f.text_area :feedback, :size => "100x10", :class => 'form-control' %>
+		    </div>
+		</div>
+	</div>
+	<div class="row">	
+		<div class="form-group">
+		    <%= f.hidden_field :user_id %> <br> <br>
+		</div>
+		<div class="form-group">
+			<div class="form-actions col-md-offset-4 col-md-8">
+			  <%= f.submit "Submit Feedback", :class => 'btn btn-primary' %>
+			</div>
+		</div>
+	</div>
 <% end %>

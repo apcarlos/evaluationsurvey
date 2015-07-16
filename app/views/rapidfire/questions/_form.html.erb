@@ -1,6 +1,7 @@
-<h3>Question</h3>
+<h4>Question</h4>
 
-<%= form_for form, as: :question, url: url, method: method do |f| %>
+<%= form_for form, as: :question, url: url, :html => { method: method, :class => 'form-horizontal'}  do |f| %>
+
   <%- unless form.errors.empty? %>
     <ul>
       <%- form.errors.full_messages.each do |message| %>
@@ -9,32 +10,65 @@
     </ul>
   <% end %>
 
-  <%= f.label :type %>
-  <%= f.select :type, ::Rapidfire::QuestionForm::QUESTION_TYPES, {}, id: "question_type" %>
-
-  <%= f.label :question_text %>
-  <%= f.text_field :question_text %>
-
-  <%= f.label :answer_options %>
-  <%= f.text_area :answer_options, rows: 5 %>
-
+  <div class="form-group">
+    <%= f.label :type, :class => "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.select :type, ::Rapidfire::QuestionForm::QUESTION_TYPES, {}, id: "question_type" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :question_text, :class => "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_field :question_text%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer_options, :class => "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_area :answer_options, rows: 5 %>
+    </div>
+  </div>
+  
   <h4>Other options</h4>
-  <hr/>
+  
+  <div class="form-group">
+      <%= f.label :answer_presence, :class => "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.check_box :answer_presence, :class => "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+      <%= f.label :answer_minimum_length, :class => "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_field :answer_minimum_length, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :answer_maximum_length, :class => "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_field :answer_maximum_length, :class => "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+      <%= f.label :answer_greater_than_or_equal_to, :class => "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_field :answer_greater_than_or_equal_to, :class => "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+      <%= f.label :answer_less_than_or_equal_to, :class => "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_field :answer_less_than_or_equal_to, :class => "form-control" %>
+    </div>
+  </div>
 
-  <%= f.label :answer_presence %>
-  <%= f.check_box :answer_presence %>
+  <div class="form-group">
+    <div class="form-actions col-md-offset-4 col-md-8">
+      <%= f.submit submit_text, :class => 'btn btn-primary' %>
+    </div>
+  </div>
 
-  <%= f.label :answer_minimum_length %>
-  <%= f.text_field :answer_minimum_length %>
-
-  <%= f.label :answer_maximum_length %>
-  <%= f.text_field :answer_maximum_length %>
-
-  <%= f.label :answer_greater_than_or_equal_to %>
-  <%= f.text_field :answer_greater_than_or_equal_to %>
-
-  <%= f.label :answer_less_than_or_equal_to %>
-  <%= f.text_field :answer_less_than_or_equal_to %>
-  <br>
-  <%= f.submit submit_text %>
 <% end %>
