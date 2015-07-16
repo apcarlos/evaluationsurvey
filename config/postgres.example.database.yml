@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: postgres
+  password: password
+
+development:
+  <<: *defaults
+  database: evaluation_survey_dev
+
+test:
+  <<: *defaults
+  database: evaluation_survey_test
+
+production:
+  <<: *defaults
+  database: evaluation_survey_prod
+
