@@ -4,15 +4,13 @@
 </h2>
 <hr/>
 
-<table>
-  <colgroup>
-    <col>
-    <col width="250">
-  </colgroup>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Question</th>
-      <th></th>
+      <th>Question Item</th>
+      <% if can_administer? %>
+      <th>Operations</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
