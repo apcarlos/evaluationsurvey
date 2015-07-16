@@ -3,7 +3,7 @@
   <% if can_administer? %>
   <td>
       <%= link_to "Edit", [:edit, question.question_group, question] %> | 
-      <%= link_to "Delete", [question.question_group, question], method: :delete %>
+      <%= link_to "Delete", [question.question_group, question], method: :delete, data: {confirm: "Are you sure?"} %>
   </td>
   <% end %>
 </tr>

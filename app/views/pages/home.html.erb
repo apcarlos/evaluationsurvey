@@ -1,15 +1,24 @@
 <% if user_signed_in? %>
 	<body>
 		<% if current_user.admin %>
-				<H1> Feedback </H1>
-				<% @feedbacks.each do |feedback| %>
-			  	<% u = feedback.user %>
-			  <p>
-			  	<%= feedback.feedback %> |
-			  	<%= "#{u.first_name} #{u.last_name}" %> |
-			  	<%= u.created_at%>
-			  </p>
-				<% end %>
+			<H1> Feedback </H1>
+			<table class="table table-striped">
+				<thead>
+					<th>Feedback</th>
+					<th>User</th>
+					<th>Date Created</th>
+				</thead>
+			  	<tbody>
+					<% @feedbacks.each do |feedback| %>
+			  		<% u = feedback.user %>
+			  		<tr>
+			  			<td> <%= feedback.feedback %> </td>
+				  		<td> <%= "#{u.first_name} #{u.last_name}" %> </td>
+				  		<td> <%= u.created_at%> </td>
+			  		</tr>
+					<% end %>
+				</tbody>
+			</table>
 
 		<% else %>
 			<h1>Intern Evaluation Survey</h1>
