@@ -3,20 +3,30 @@
   <% if @users.blank? %>
   	<p> There are no users. </p>
   <% else %>
-	<% @users.each do |user| %>
-	  <p>
-		<%= user.first_name %>
-		<%= user.last_name %>
-		<br>
-		<%= user.email %>
-		<%= user.school_name %>
-		<%= user.internship_year %>
-	  </p>
-      
-      <% if current_user.admin %>
-        <%= link_to "Create feedback", new_user_feedback_path(user_id: user.id) %>
-        <%= link_to "Show feedback", user_feedbacks_path(user_id: user.admin) %>
-      <% end %>
-
-    <% end %>
+  	<table class="table table-striped">
+  		<thead>
+  			<th>First Name</th>
+  			<th>Last Name</th>
+  			<th>Email</th>
+  			<th>School Name</th>
+  			<th>Internship Year</th>
+  		</thead>
+  		
+  		<tbody>
+  			<% @users.each do |user| %>
+  			<tr>
+  				<td><%= user.first_name %></td>
+  				<td><%= user.last_name %></td>
+  				<td><%= user.email %></td>
+  				<td><%= user.school_name %></td>
+  				<td><%= user.internship_year %></td>
+  				<td>
+  					<% if current_user.admin %>
+			        <%= link_to "Create feedback", new_user_feedback_path(user_id: user.id) %> |
+			        <%= link_to "Show feedback", user_feedbacks_path(user_id: user.admin) %>
+      				<% end %>
+  				</td>
+  			</tr>
+    		<% end %>
+  		</tbody>
   <% end %>
