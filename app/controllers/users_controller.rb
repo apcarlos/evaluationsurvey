@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update!(admin: false)
     redirect_to users_path
+  end
 
   def show
     @user = User.find(params[:id])
