@@ -14,18 +14,25 @@
   		
   		<tbody>
   			<% @users.each do |user| %>
-  			<tr>
-  				<td><%= "#{user.first_name} #{user.last_name}" %></td>
-  				<td><%= user.email %></td>
-  				<td><%= user.school_name %></td>
-  				<td><%= user.internship_year %></td>
-  				<td>
-  					<% if current_user.admin %>
-			        <%= link_to "Create feedback", new_user_feedback_path(user_id: user.id) %> |
-			        <%= link_to "Show feedback", user_feedbacks_path(user_id: user.admin) %>
-      				<% end %>
-  				</td>
-  			</tr>
-    		<% end %>
-  		</tbody>
+         <% if current_user != user %>
+    			<tr>
+    				<td><%= "#{user.first_name} #{user.last_name}" %></td>
+    				<td><%= user.email %></td>
+    				<td><%= user.school_name %></td>
+    				<td><%= user.internship_year %></td>
+    				<td>
+    					<% if current_user.admin %>
+                <% if user.admin %>
+                  <%= link_to "Revoke Admin Role", revoke_admin_role_users_path(id: user.id), method: :post%> |               
+                <% else %>
+                  <%= link_to "Assign Admin Role", assign_admin_role_users_path(id: user.id), method: :post%> |
+                <% end %>
+  			        <%= link_to "Create feedback", new_user_feedback_path(user_id: user.id) %> |
+  			        <%= link_to "Show feedback", user_feedbacks_path(user_id: user.admin) %>
+        				<% end %>
+    				</td>
+    			</tr>
+        <% end %>
+    	<% end %>
+  	</tbody>
   <% end %>

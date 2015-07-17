@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: "registrations"}
   get 'pages/info'
 
-  resources :users
+  resources :users do
+    collection do
+      post 'assign_admin_role' => 'users#assign'
+      post 'revoke_admin_role' => 'users#revoke'
+    end
+  end
   resources :ideas
   resources :user_feedbacks
 

@@ -22,6 +22,18 @@ class UsersController < ApplicationController
   	end
   end
 
+  def assign
+    @user = User.find(params[:id])
+    @user.update!(admin: true)
+    redirect_to users_path
+  end
+
+  def revoke
+    @user = User.find(params[:id])
+    @user.update!(admin: false)
+    redirect_to users_path
+  end
+
   private
   	def user_params
   		params.require(:user).permit(:email, :first_name, :last_name, :school_name, :internship_year)
