@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150703064539) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string   "user_name"
     t.text     "body"
@@ -37,8 +40,8 @@ ActiveRecord::Schema.define(version: 20150703064539) do
     t.datetime "updated_at"
   end
 
-  add_index "rapidfire_answer_groups", ["question_group_id"], name: "index_rapidfire_answer_groups_on_question_group_id"
-  add_index "rapidfire_answer_groups", ["user_id", "user_type"], name: "index_rapidfire_answer_groups_on_user_id_and_user_type"
+  add_index "rapidfire_answer_groups", ["question_group_id"], name: "index_rapidfire_answer_groups_on_question_group_id", using: :btree
+  add_index "rapidfire_answer_groups", ["user_id", "user_type"], name: "index_rapidfire_answer_groups_on_user_id_and_user_type", using: :btree
 
   create_table "rapidfire_answers", force: :cascade do |t|
     t.integer  "answer_group_id"
@@ -48,8 +51,8 @@ ActiveRecord::Schema.define(version: 20150703064539) do
     t.datetime "updated_at"
   end
 
-  add_index "rapidfire_answers", ["answer_group_id"], name: "index_rapidfire_answers_on_answer_group_id"
-  add_index "rapidfire_answers", ["question_id"], name: "index_rapidfire_answers_on_question_id"
+  add_index "rapidfire_answers", ["answer_group_id"], name: "index_rapidfire_answers_on_answer_group_id", using: :btree
+  add_index "rapidfire_answers", ["question_id"], name: "index_rapidfire_answers_on_question_id", using: :btree
 
   create_table "rapidfire_question_groups", force: :cascade do |t|
     t.string   "name"
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(version: 20150703064539) do
     t.datetime "updated_at"
   end
 
-  add_index "rapidfire_questions", ["question_group_id"], name: "index_rapidfire_questions_on_question_group_id"
+  add_index "rapidfire_questions", ["question_group_id"], name: "index_rapidfire_questions_on_question_group_id", using: :btree
 
   create_table "user_feedbacks", force: :cascade do |t|
     t.text     "feedback"
@@ -98,7 +101,7 @@ ActiveRecord::Schema.define(version: 20150703064539) do
     t.boolean  "admin"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

@@ -7,14 +7,9 @@ gem 'rails', '4.2.2'
 
 gem 'better_errors'
 
-group :development do
-  gem 'sqlite3'
-end
-
-#group :production do
-  #gem 'pg'
-  #gem 'rails_12factor'
-#end
+gem 'sqlite3'
+gem 'pg'
+gem 'rails_12factor'
 
 gem 'carrierwave'
 # Use SCSS for stylesheets
