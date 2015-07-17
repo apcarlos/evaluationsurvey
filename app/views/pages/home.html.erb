@@ -1,0 +1,52 @@
+<% if user_signed_in? %>
+	<% if current_user.admin %>
+		<H1> Feedback </H1>
+		<table class="table table-striped">
+			<thead>
+				<th>Feedback</th>
+				<th>User</th>
+				<th>Date Created</th>
+			</thead>
+		  	<tbody>
+				<% @feedbacks.each do |feedback| %>
+		  		<% u = feedback.user %>
+		  		<tr>
+		  			<td> <%= feedback.feedback %> </td>
+			  		<td> <%= link_to "#{feedback.user.first_name} #{feedback.user.last_name}", user_path(feedback.user) %> </td>
+			  		<td> <%= u.created_at%> </td>
+		  		</tr>
+				<% end %>
+			</tbody>
+		</table>
+
+	<% else %>
+		<h1>Intern Evaluation Survey</h1>
+		<h2>Instructions</h2>
+		<p>Please fill out this survey to evaluate your internship experience at AELOGICA.
+			<p>
+			 We would like you to be as honest as possible because your constructive feedback will  be used to make this program better.</p>
+			</p>
+
+			<%= link_to 'Start Evaluation', 'rapidfire' %></li>
+			<br>
+	<p>Thanks!</p>
+	<% end %>
+<% else %>
+
+	<center>
+		<h1>The Survey App by ÆLOGICA</h1>
+		<h2>Making Surveys and Big Projects Easier</h2>
+
+		<div class = "btn-panel">
+			<div class="btn-group">
+				<%= link_to "Sign up", new_user_registration_path, :class => "btn" %>
+			</div>
+				or
+			<div class="btn-group">
+				<%= link_to "Log in", new_user_session_path, :class => "btn" %>
+			</div>
+		</div>
+
+	</center>
+
+<% end %>

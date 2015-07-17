@@ -6,14 +6,20 @@ class UserFeedbacksController < ApplicationController
   end
 
   def show
-  		@user_feedback =UserFeedback.find(params[:id])
+      @user = User.find(params[:id])
 
+      user_feedbacks = UserFeedback.where(:user_id => params[:id])
+      @feedbacks = []
+      user_feedbacks.each do |user_feedback|
+        @feedbacks << user_feedback.feedback.to_s
+      end
+      @feedbacks.compact
   end
 
   def create
   		@user = User.find(params[:user_feedback][:user_id])
   		@user_feedback=@user.user_feedbacks.create(user_feedback_params)
-  		redirect_to @user_feedback
+  		redirect_to @user_feedba
   end
 
   def user_feedback_params

@@ -4,18 +4,21 @@
 </h2>
 <hr/>
 
-<table>
-  <colgroup>
-    <col>
-    <col width="250">
-  </colgroup>
+<% if @questions.blank? %>
+    There are no questions on this survey.
+<% else %>
+
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Question</th>
-      <th></th>
+      <th>Question Item</th>
+      <% if can_administer? %>
+      <th>Operations</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
     <%= render partial: "question", collection: @questions %>
   </tbody>
 </table>
+<% end %>

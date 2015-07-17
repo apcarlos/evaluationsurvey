@@ -46,3 +46,7 @@ p {
 error_explanation {
   color: red;
 }
+
+#feedback_container{
+	word-wrap: break-word;
+}

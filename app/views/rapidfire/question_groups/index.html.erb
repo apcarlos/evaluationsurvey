@@ -6,12 +6,22 @@
 </h2>
 <hr/>
 
-<table>
+<% if @question_groups.blank? %>
+  No avalilable surveys.
+<% else %>
+<table class="table table-striped">
   <thead>
-    <tr>
-    </tr>
+    <th>
+      Survey Name
+    </th>
+    <% if can_administer? %>
+    <th>
+      Operations
+    </th>
+    <% end %>
   </thead>
   <tbody>
     <%= render partial: "question_group", collection: @question_groups %>
   </tbody>
 </table>
+<% end %>

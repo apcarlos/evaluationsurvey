@@ -5,21 +5,24 @@
 	<p>Click at the tab called <strong>Start Evaluation</strong> to start filling out the questionnaire.</p>
 	<p>Thanks!</p>
 <% elsif current_user && current_user.admin %>
-	<h1> Feedback </h1>
-	<% if @feedbacks.blank? %>
-		<p>
-			There are no feedbacks.
-		</p>
-	<% else %>
-		<% @feedbacks.each do |feedback| %>
-		  <% u = feedback.user %>
-		  <p>
-		  	<%= feedback.feedback %> | 
-		  	<%= "#{u.first_name} #{u.last_name}" %> |
-		  	<%= u.created_at%>
-		  </p>
-		<% end %>
-	<% end %>
+	<H1> Feedback </H1>
+		<table class="table table-striped">
+			<thead>
+				<th>Feedback</th>
+				<th>User</th>
+				<th>Date Created</th>
+			</thead>
+		  	<tbody>
+				<% @feedbacks.each do |feedback| %>
+		  		<% u = feedback.user %>
+		  		<tr>
+		  			<td> <%= feedback.feedback %> </td>
+			  		<td> <%= link_to "#{feedback.user.first_name} #{feedback.user.last_name}", user_path(feedback.user) %> </td>
+			  		<td> <%= u.created_at%> </td>
+		  		</tr>
+				<% end %>
+			</tbody>
+		</table>
 <% else %>
 	<center>
 		<h1>The Survey App by ÆLOGICA</h1>
