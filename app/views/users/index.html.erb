@@ -21,7 +21,7 @@
   				<td>
   					<% if current_user.admin %>
 			        <%= link_to "Create feedback", new_user_feedback_path(user_id: user.id) %> |
-			        <%= link_to "Show feedback", user_feedbacks_path(user_id: user.admin) %>
+			        <%= link_to "Show feedback", user_feedback_path(user.id) %>
       				<% end %>
   				</td>
   			</tr>
