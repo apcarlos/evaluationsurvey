@@ -18,9 +18,35 @@ body {
   /*background: #6699cc;*/
 }
 
+<<<<<<< Updated upstream
 footer { margin-top: 10px; }
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
+=======
+footer { 
+	margin-top: 10px; 
+}
+
+table, td, th { 
+	vertical-align: middle; 
+	horizontal-align: center;
+	text-align: center;
+	border: none; 
+}
+
+th { 
+	border-bottom: 1px solid #DDD; 
+}
+
+h1 {
+	color:cornflowerblue;
+}
+
+
+p {
+	color:black;
+}
+>>>>>>> Stashed changes
 
 error_explanation {
   color: red;
