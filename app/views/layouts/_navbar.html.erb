@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse">
       <p class="navbar-text pull-right">
       <% if user_signed_in? %>
-          <%= link_to 'Start Evaluation', 'rapidfire' %></li> |
+          <%= link_to 'Start Evaluation', '/rapidfire' %></li> |
           <% if current_user && current_user.admin %>
             <%= link_to 'Users', main_app.users_path %></li> |
           <% end %>
