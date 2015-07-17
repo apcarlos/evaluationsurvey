@@ -12,16 +12,16 @@
     <div class="collapse navbar-collapse">
       <p class="navbar-text pull-right">
       <% if user_signed_in? %>
-          <%= link_to 'Start Evaluation', '/rapidfire' %></li> |
+          <%= link_to 'Evaluations', '/rapidfire', class: 'navbar-link' %></li> |
           <% if current_user && current_user.admin %>
-            <%= link_to 'Users', main_app.users_path %></li> |
+            <%= link_to 'Users', main_app.users_path, class: 'navbar-link' %></li> |
           <% end %>
 
-        <%= link_to "#{ current_user.last_name }, #{ current_user.first_name }", main_app.edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", main_app.destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <%= link_to "#{ current_user.last_name }, #{ current_user.first_name }", main_app.edit_user_registration_path, class: 'navbar-link' %> |
+        <%= link_to "Logout", main_app.destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
       <% else %>
-        <%= link_to "Sign up", main_app. new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", main_app.new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Sign up", main_app. new_user_registration_path, class: 'navbar-link'  %> |
+        <%= link_to "Login", main_app.new_user_session_path, class: 'navbar-link'  %>
       <% end %>
     </div>
   </div>
