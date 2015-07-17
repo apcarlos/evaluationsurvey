@@ -15,7 +15,7 @@ schools = ['', 'UP Diliman', 'UP Diliman', 'UST', 'Ateneo']
 
 x = 0
 while x < 6 do
-	admin = (x==0) ? true : false
+	admin = (x<=1) ? true : false
 	user = User.create(email: first_names[x].downcase + '@aelogica.com', password: password, first_name: first_names[x], last_name: last_names[x], admin: admin)
 	x = x + 1
 end
