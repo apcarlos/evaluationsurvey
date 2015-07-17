@@ -13,7 +13,7 @@
 			  		<% u = feedback.user %>
 			  		<tr>
 			  			<td> <%= feedback.feedback %> </td>
-				  		<td> <%= "#{u.first_name} #{u.last_name}" %> </td>
+				  		<td> <%= link_to "#{feedback.user.first_name} #{feedback.user.last_name}", user_path(feedback.user) %> </td>
 				  		<td> <%= u.created_at%> </td>
 			  		</tr>
 					<% end %>

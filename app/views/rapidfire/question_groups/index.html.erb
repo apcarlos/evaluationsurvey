@@ -6,6 +6,9 @@
 </h2>
 <hr/>
 
+<% if @question_groups.blank? %>
+  No avalilable surveys.
+<% else %>
 <table class="table table-striped">
   <thead>
     <th>
@@ -21,3 +24,4 @@
     <%= render partial: "question_group", collection: @question_groups %>
   </tbody>
 </table>
+<% end %>

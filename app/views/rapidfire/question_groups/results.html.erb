@@ -1,5 +1,8 @@
 <h1>Results</h1>
 
+<% if @question_group_results.blank? %>
+  No one answered this survey yet.
+<% else %>
 <%- @question_group_results.each do |result| %>
   <div>
     <h4><%= result.question.question_text %></h4>
@@ -29,4 +32,5 @@
         </table>
       <% end %>
   </div>
+<% end %>
 <% end %>

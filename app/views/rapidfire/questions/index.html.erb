@@ -4,6 +4,10 @@
 </h2>
 <hr/>
 
+<% if @questions.blank? %>
+    There are no questions on this survey.
+<% else %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -17,3 +21,4 @@
     <%= render partial: "question", collection: @questions %>
   </tbody>
 </table>
+<% end %>
