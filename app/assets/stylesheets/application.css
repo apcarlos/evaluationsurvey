@@ -15,14 +15,10 @@
  */
 body {
   padding-top: 100px;
+  background-color: gainsboro;
   /*background: #6699cc;*/
 }
 
-<<<<<<< Updated upstream
-footer { margin-top: 10px; }
-table, td, th { vertical-align: middle; border: none; }
-th { border-bottom: 1px solid #DDD; }
-=======
 footer { 
 	margin-top: 10px; 
 }
@@ -31,7 +27,7 @@ table, td, th {
 	vertical-align: middle; 
 	horizontal-align: center;
 	text-align: center;
-	border: none; 
+	border: none;  
 }
 
 th { 
@@ -46,7 +42,6 @@ h1 {
 p {
 	color:black;
 }
->>>>>>> Stashed changes
 
 error_explanation {
   color: red;
